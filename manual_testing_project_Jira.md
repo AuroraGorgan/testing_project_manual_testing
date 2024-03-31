@@ -28,12 +28,11 @@ The plan identifies the items to be tested, the features to be tested, the types
 
 <h4>1.1.1. Roles asigned to the project and persons allocated</h4>
 
-**(numele persoanelor pot sa fie fictive, doar sa treceti numele vostru ca si tester)**
 <ul>
-  <li>Project manager</li> 
-  <li>Product owner</li>
-  <li>Software developer</li>
-  <li>QA Engineer</li>
+  <li>Project manager: Phoebe Buffay</li> 
+  <li>Product owner: Joey Tribbiani</li>
+  <li>Software developer: Chandler Bing</li>
+  <li>QA Engineer: Garofița-Aurora Gorgan</li>
 </ul>
 
 <h4> 1.1.2 Entry criteria defined </h4>
