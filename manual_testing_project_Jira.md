@@ -1,8 +1,8 @@
-<h1>Testing Project for **Inserati aici numele aplicatiei pe care o testati**</h1>
+<h1>Testing Project for OLX</h1>
 
 The scope of the final project for ITF Manual Testing Course is to use all gained knowledge throught the course and apply them in practice, using a live application
 
-Application under test: **Inserati aici numele aplicatiei pe care o testati**
+Application under test: OLX
 
 Tools used: Jira, Zephyr Squad.
 
