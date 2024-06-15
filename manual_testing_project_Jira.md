@@ -1,17 +1,20 @@
-<h1>Database Project for **Inserati aici numele aplicatiei pe care o testati**</h1>
+<h1>Database Project for Watch_and_Win</h1>
 
 The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
-Application under test: **Inserati aici numele aplicatiei pe care o testati**
+Application under test: Watch_and_Win
 
 Tools used: MySQL Workbench
 
-Database description: **Inserati aici o scurta descriere a bazei de date care sa contina scopul ei, informatiile generale pe care le veti salva si orice alte informatii considerati ca sunt relevante pentru o descriere**
+Database description: The "Watch and Win" database is designed to manage information related to ticket purchases within a cinema network for the Watch and Win application, which selects winners for a free 3-month cinema subscription. The primary purpose of this database is to provide an efficient platform for tracking and managing ticket sales, as well as for analyzing data related to customer preferences and movie performance.
 
 <ol>
 <li>Database Schema </li>
 <br>
 You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
+
+![image](https://github.com/AuroraGorgan/testing_project_manual_testing/assets/162451396/47af38fe-f9a3-4a1b-9442-046661121e47)
+
 
 The tables are connected in the following way:
 
@@ -30,18 +33,55 @@ The tables are connected in the following way:
 
   The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-  **Inserati aici toate instructiunile de CREATE pe care le-ati scris, atat create database cat si create table**
+create database Watch_and_Win;
+
+create table movie_purchases
+( movie_id int primary key,
+client_name varchar(100),
+purchase_occasion varchar(20),
+tickets float,
+movie_title varchar(20),
+movie_genre varchar(20),
+movie_subtitles char (2),
+movie_rating_IMDB float,
+release_date date);
+
+create table subtitles
+( subtitles_id int primary key,
+subtitles_name varchar (20),
+subtitles_code char (2));
+
+create table movie_subtitles
+(movie_subtitles_id int primary key,
+movie_id int,
+subtitles_id int,
+foreign key (movie_id) references movie_purchases (movie_id),
+foreign key (subtitles_id) references subtitles (subtitles_id));
+
+create table clients 
+(client_id int primary key auto_increment,
+    client_name varchar(100) not null,
+    email varchar(100),
+    phone varchar(30));
+
+create table cinemas 
+(cinema_id int primary key auto_increment,
+    cinema_name varchar(100) not null,
+    location varchar(100));
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
-  **Inserati aici toate instructiunile de ALTER pe care le-ati scris. Incercati sa includeti instructiuni cat mai variate cum ar fi:**
- **- schimbare nume tabela**
- **- adaugare sau stergere coloana**
- **- redenumire coloana**
- **- adaugare proprietati coloana (ex: adaugare auto-increment)**
- **- modificare proprietati coloana (ex: modificare tip de data, modificare pozitie coloana etc)**
- **- adaugare cheie primara sau secundara (daca nu a fost deja adaugata la crearea tabelei)**
- 
+alter table movie_purchases drop column movie_subtitles;
+alter table movie_purchases add cinema varchar(40);
+alter table movie_purchases modify cinema varchar(40) after movie_id;
+alter table movie_purchases rename movie_purchases_July;
+alter table movie_purchases_July rename column tickets to number_of_tickets;
+alter table movie_purchases_July modify column movie_title varchar(120);
+alter table movie_subtitles modify column movie_subtitles_id int auto_increment;
+alter table movie_purchases_July add client_id INT, add cinema_id INT;
+alter table movie_purchases_July add constraint fk_client foreign key (client_id) 
+references clients (client_id),
+add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);
   
   <li>DML (Data Manipulation Language)</li>
 
@@ -50,41 +90,168 @@ The tables are connected in the following way:
 
   Below you can find all the insert instructions that were created in the scope of this project:
 
-  **Inserati aici toate instructiunile de INSERT pe care le-ati scris. Incercati sa folositi atat insert pe toate coloanele (fara sa precizati pe ce coloane se face insert) cat si insert pe cateva coloane (care necesita mentionarea explicita a coloanelor pe care se face insert). De asemenea, incercati sa acoperiti situatia in care inserati mai multe randuri in acelasi timp**
+insert into movie_purchases_July (movie_id, cinema, client_name, purchase_occasion, number_of_tickets, movie_title, movie_genre, 
+movie_rating_IMDB, release_date) values ('1','Dacia','John Anderson','date', 2, 'The Avengers', 'Action', '8.0', '2012-05-14'), 
+('2','Victoria','Sujin Lee','fun', 5,'The Conjuring','Horror','7.5', '2013-07-19'),
+('3', 'Cinema City Vivo','Rachel DeSantos','date', 2, 'Despicable Me', 'Animation', '7.6', '2010-07-09');
+select * from movie_purchases_July;
+
+insert into movie_purchases_July (movie_id, cinema, client_name, purchase_occasion, number_of_tickets, movie_title, movie_genre, 
+movie_rating_IMDB, release_date) values ('4','Cinema City Iulius','Kim Soo-hyun','date', 2, 'The Dark Knight Rises', 'Action', '8.4', '2012-07-20');
+
+insert into movie_purchases_July values ('5','Florin Piersic','Jane Morningstar','fun', 6, '21 Jump Street', 'Comedy', '7.2', '2012-03-16');
+
+insert into movie_purchases_July (movie_id, cinema, client_name, purchase_occasion, number_of_tickets, movie_title, movie_genre)
+values ('6','Cinema City Iulius','Patrik Green','fun', 12, 'The Watch', 'Comedy');
+select * from movie_purchases_July;
+
+insert into subtitles (subtitles_id, subtitles_name, subtitles_code)
+values ('01', 'English', 'EN'), ('02', 'Spanish', 'SP'), ('03', 'Romanian', 'RO'), ('04', 'French', 'FR'), ('05', 'Korean', 'KO');
+select * from subtitles;
+
+insert into movie_subtitles (movie_id, subtitles_id)
+values (1, '01'), (2, '02'), (4, '03'), (5, '04'), (3, '05');
+select * from movie_subtitles;
+
+insert into clients (client_name, email, phone) values ('John Anderson', 'john.anderson@gmail.com', '123-456-7890'),
+('Sujin Lee', 'sujin.lee@gmail.com', '234-567-8901'), ('Rachel DeSantos', 'rachel.desantos@gmail.com', '345-678-9012'),
+('Kim Soo-hyun', 'kim.soohyun@gmail.com', '456-789-0123'), ('Jane Morningstar', 'jane.morningstar@gmail.com', '567-890-1234'),
+('Patrik Green', 'patrik.green@gmail.com', '678-901-2345');
+
+insert into cinemas (cinema_name, location)
+values ('Dacia', 'Location 1'), ('Victoria', 'Location 2'), ('Cinema City Vivo', 'Location 3'),
+('Cinema City Iulius', 'Location 4'), ('Florin Piersic', 'Location 5');
 
   After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
-  **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
+update movie_purchases_July
+set client_id = (select client_id from clients where client_name = movie_purchases_July.client_name),
+    cinema_id = (select cinema_id from cinemas where cinema_name = movie_purchases_July.cinema);
 
+alter table movie_purchases_July
+drop column client_name,
+drop column cinema;
+select * from clients;
+select * from cinemas;
+select * from movie_purchases_July;
+
+update movie_purchases_July
+set number_of_tickets = 10
+where movie_title = 'The Conjuring';
+
+update movie_purchases_July
+set movie_genre = 'Action Comedy'
+where movie_id = 5;
+
+update movie_purchases_July
+set movie_rating_IMDB = movie_rating_IMDB + 0.1
+where year (release_date) = 2012;
+select * from movie_purchases_July;
 
   <li>DQL (Data Query Language)</li>
 
 After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean: 
 
-**Inserati aici toate instructiunile de DELETE pe care le-ati scris folosind filtrarile necesare astfel incat sa stergeti doar datele de care aveti nevoie**
+select client_id from clients where client_name = 'John Anderson';
+select movie_id from movie_purchases_July where client_id = 1;
+delete from movie_subtitles where movie_id in (select movie_id from movie_purchases_July where client_id = 1);
+delete from movie_purchases_July WHERE client_id = 1;
+select * from movie_purchases_July;
+
+select movie_id from movie_purchases_July where month(release_date) != 7;
+delete from movie_subtitles 
+where movie_id in (select movie_id from movie_purchases_July where month(release_date) != 7);
+delete from movie_purchases_July 
+where month(release_date) != 7;
+select * from movie_purchases_July;
 
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
-**Inserati aici toate instructiunile de SELECT pe care le-ati scris folosind filtrarile necesare astfel incat sa extrageti doar datele de care aveti nevoie**
-**Incercati sa acoperiti urmatoarele:**<br>
-**- where**<br>
-**- AND**<br>
-**- OR**<br>
-**- NOT**<br>
-**- like**<br>
-**- inner join**<br>
-**- left join**<br>
-**- OPTIONAL: right join**<br>
-**- OPTIONAL: cross join**<br>
-**- functii agregate**<br>
-**- group by**<br>
-**- having**<br>
-**- OPTIONAL DAR RECOMANDAT: Subqueries - nu au fost in scopul cursului. Puteti sa consultati tutorialul [asta](https://www.techonthenet.com/mysql/subqueries.php) si daca nu intelegeti ceva contactati fie trainerul, fie coordonatorul de grupa**<br>
+select * from movie_purchases_July
+where movie_genre = 'Action';
+
+select * from movie_purchases_July
+where movie_genre = 'Animation';
+
+select * from movie_purchases_July
+where movie_genre = 'Comedy';
+
+select * from movie_purchases_July
+where movie_genre = 'Action' and year (release_date) = 2012;
+
+select * from movie_purchases_July
+where movie_genre = 'Comedy' and number_of_tickets >9;
+
+select * from movie_purchases_July
+where movie_genre = 'Action' or movie_genre = 'Comedy' or movie_genre = 'Animation';
+
+select * from movie_purchases_July
+where not movie_genre = 'Action';
+
+select * from movie_purchases_July
+where movie_title LIKE 'The%';
+
+select mp.movie_id, mp.movie_title, s.subtitles_name
+from movie_purchases_July mp
+inner join movie_subtitles ms on mp.movie_id = ms.movie_id
+inner join subtitles s on ms.subtitles_id = s.subtitles_id;
+
+select mp.movie_id, mp.movie_title, s.subtitles_name
+from movie_purchases_July mp
+left join movie_subtitles ms on mp.movie_id = ms.movie_id
+left join subtitles s on ms.subtitles_id = s.subtitles_id;
+
+select mp.movie_id, mp.movie_title, s.subtitles_name
+from movie_purchases_July mp
+right join movie_subtitles ms on mp.movie_id = ms.movie_id
+right join subtitles s on ms.subtitles_id = s.subtitles_id;
+
+select mp.movie_id, mp.movie_title, s.subtitles_name
+from movie_purchases_July mp
+cross join subtitles s;
+
+select AVG(number_of_tickets) as avg_tickets
+from movie_purchases_July;
+
+select MIN(number_of_tickets) as min_tickets
+from movie_purchases_July;
+
+select MAX(number_of_tickets) as max_tickets
+from movie_purchases_July;
+select SUM(number_of_tickets) as total_tickets
+from movie_purchases_July;
+
+select COUNT(*) as total_records
+from movie_purchases_July;
+
+select c.client_name,
+       COUNT(*) as total_purchases,
+       SUM(mpj.number_of_tickets) as total_tickets_purchased
+from movie_purchases_July mpj
+join clients c on mpj.client_id = c.client_id
+group by c.client_name;
+
+select ci.cinema_name,
+       COUNT(*) as total_purchases,
+       SUM(mpj.number_of_tickets) as total_tickets_purchased
+from movie_purchases_July mpj
+join cinemas ci on mpj.cinema_id = ci.cinema_id
+group by ci.cinema_name;
+
+select mpj.movie_genre, c.client_name, SUM(mpj.number_of_tickets) as total_tickets
+from movie_purchases_July mpj
+join clients c on mpj.client_id = c.client_id
+group by mpj.movie_genre, c.client_name
+having total_tickets > 2;
+
+select * from movie_purchases_July
+where movie_rating_IMDB = (select MAX(movie_rating_IMDB) from movie_purchases_July);
+<br>
 
 </ol>
 
 <li>Conclusions</li>
 
-**Inserati aici o concluzie cu privire la ceea ce ati lucrat, gen lucrurile pe care le-ati invatat, lessons learned, un rezumat asupra a ceea ce ati facut si orice alta informatie care vi se pare relevanta pentru o concluzie finala asupra a ceea ce ati lucrat**
+In summary, this task provided an opportunity to delve into relational database concepts, reinforcing the importance of clear design and understanding relationships between tables. Through this experience, I gained practical insights into database management and the importance of thoughtful schema design.
 
 </ol>
