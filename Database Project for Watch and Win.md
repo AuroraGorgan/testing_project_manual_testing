@@ -8,6 +8,13 @@ Tools used: MySQL Workbench
 
 Database description: The "Watch and Win" database is designed to manage information related to ticket purchases within a cinema network for the Watch and Win application, which selects winners for a free 3-month cinema subscription. The primary purpose of this database is to provide an efficient platform for tracking and managing ticket sales, as well as for analyzing data related to customer preferences and movie performance.
 
+General information stored:
+
+1.	Ticket purchase details: these include the movie ID, client name, purchase date, number of tickets purchased, movie title and genre, IMDb rating and release date.
+2.	Information on available subtitles: the database also contains details about the available subtitles for each movie, including a unique identifier, subtitle name and code.
+3.	Client and cinema details: customer information (such as name, email address, and phone number) is stored in a separate table, while information about cinemas, including their names and locations, is managed in a different table.
+4.	Link between movies and subtitles: through the "movie_subtitles" table, the database establishes the connection between movies and the available subtitles.
+
 <ol>
 <li>Database Schema </li>
 <br>
@@ -19,11 +26,10 @@ You can find below the database schema that was generated through Reverse Engine
 The tables are connected in the following way:
 
 <ul>
-  <li> **nume tabela 1**  is connected with **nume tabela 2** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
-  <li> **nume tabela 3**  is connected with **nume tabela 4** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
-  <li> **nume tabela 5**  is connected with **nume tabela 6** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
-  ...........
-  <li> **nume tabela n**  is connected with **nume tabela n+1** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
+  <li> movie_purchases_July is connected with clients through a one-to-many relationship which was implemented through clients.client_id as a primary key and movie_purchases_July.client_id as a foreign key</li>
+  <li> movie_purchases_July is connected with cinemas through a one-to-many relationship which was implemented through cinemas.cinema_id as a primary key and movie_purchases_July.cinema_id as a foreign key</li>
+  <li> movie_subtitles is connected with subtitles through a one-to-many relationship which was implemented through subtitles.subtitles_id as a primary key and movie_subtitles.subtitles_id as a foreign key</li>
+  <li> movie_purchases_July is connected with movie_subtitles through a one-to-many relationship which was implemented through movie_id as a primary key in movie_purchases_July and movie_id as a foreign key in movie_subtitles</li>
 </ul><br>
 
 <li>Database Queries</li><br>
@@ -232,8 +238,8 @@ join clients c on mpj.client_id = c.client_id
 group by c.client_name;
 
 select ci.cinema_name,
-       COUNT(*) as total_purchases,
-       SUM(mpj.number_of_tickets) as total_tickets_purchased
+COUNT(*) as total_purchases,
+SUM(mpj.number_of_tickets) as total_tickets_purchased
 from movie_purchases_July mpj
 join cinemas ci on mpj.cinema_id = ci.cinema_id
 group by ci.cinema_name;
