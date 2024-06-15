@@ -1,4 +1,4 @@
-<h1>Database Project for Watch_and_Win</h1>
+<h1>Database Project for Watch and Win</h1>
 
 The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
