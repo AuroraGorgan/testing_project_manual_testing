@@ -78,13 +78,21 @@ create table cinemas
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
 alter table movie_purchases drop column movie_subtitles;
+
 alter table movie_purchases add cinema varchar(40);
+
 alter table movie_purchases modify cinema varchar(40) after movie_id;
+
 alter table movie_purchases rename movie_purchases_July;
+
 alter table movie_purchases_July rename column tickets to number_of_tickets;
+
 alter table movie_purchases_July modify column movie_title varchar(120);
+
 alter table movie_subtitles modify column movie_subtitles_id int auto_increment;
+
 alter table movie_purchases_July add client_id INT, add cinema_id INT;
+
 alter table movie_purchases_July add constraint fk_client foreign key (client_id) 
 references clients (client_id),
 add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);
