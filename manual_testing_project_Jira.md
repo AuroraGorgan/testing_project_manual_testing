@@ -1,115 +1,90 @@
-<h1>Testing Project for OLX</h1>
+<h1>Database Project for **Inserati aici numele aplicatiei pe care o testati**</h1>
 
-The scope of the final project for ITF Manual Testing Course is to use all gained knowledge throught the course and apply them in practice, using a live application
+The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
-Application under test: OLX
+Application under test: **Inserati aici numele aplicatiei pe care o testati**
 
-Tools used: Jira, Zephyr Squad.
+Tools used: MySQL Workbench
 
-<h2>Functional specifications:</h2>
+Database description: **Inserati aici o scurta descriere a bazei de date care sa contina scopul ei, informatiile generale pe care le veti salva si orice alte informatii considerati ca sunt relevante pentru o descriere**
 
-The below story **(daca aveti mai multe scrieti stories**) was created in Jira and describes the functional specifications of the "**nume_modul**" module, for which the final project is performed upon.
+<ol>
+<li>Database Schema </li>
+<br>
+You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
 
-**inserati aici fie poza cu story-ul / story-urile daca aveti mai putine, dar daca aveti mai mult de doua recomand sa descarcati story-urile din jira si sa le incarcati ca fisier**
-
-Here you can find the release that was created for this project:
-
-**(inserati aici o poza cu release-ul pe care l-ati creat in jira. Atentie, release-ul nu va contine si teste, ci doar epic-uri, story-uri, task-uri, subtaskuri si bug-uri)**
-
-<h2>Testing process</h2>
-
-The test process was performed based on the standard test process as described below.
-
-<h3>1.1 Test planning</h3>
-
-The Test Plan is designed to describe all details of testing for all the modules from the JPetStore Demo application.
-
-The plan identifies the items to be tested, the features to be tested, the types of testing to be performed, the personnel responsible for testing, the resources and schedule required to complete testing, and the risks associated with the plan. The test plan that was created for this project can be found here **(inserati link catre documentul cu planul de testare)**
-
-<h4>1.1.1. Roles asigned to the project and persons allocated</h4>
+The tables are connected in the following way:
 
 <ul>
-  <li>Project manager: Phoebe Buffay</li> 
-  <li>Product owner: Joey Tribbiani</li>
-  <li>Software developer: Chandler Bing</li>
-  <li>QA Engineer: Garofița-Aurora Gorgan</li>
-</ul>
+  <li> **nume tabela 1**  is connected with **nume tabela 2** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
+  <li> **nume tabela 3**  is connected with **nume tabela 4** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
+  <li> **nume tabela 5**  is connected with **nume tabela 6** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
+  ...........
+  <li> **nume tabela n**  is connected with **nume tabela n+1** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
+</ul><br>
 
-<h4> 1.1.2 Entry criteria defined </h4>
+<li>Database Queries</li><br>
 
-**(enumerati aici toate criteriile de intrare pe care le-ati definit pentru proiectul vostru)**
+<ol type="a">
+  <li>DDL (Data Definition Language)</li>
 
-<h4> 1.1.3 Exit criteria defined </h4>
+  The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-**(enumerati aici toate criteriile de iesire pe care le-ati definit pentru proiectul vostru)**
+  **Inserati aici toate instructiunile de CREATE pe care le-ati scris, atat create database cat si create table**
 
-<h4> 1.1.4 Test scope</h4>
+  After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
-<h5> Tests in scope: </h5>
+  **Inserati aici toate instructiunile de ALTER pe care le-ati scris. Incercati sa includeti instructiuni cat mai variate cum ar fi:**
+ **- schimbare nume tabela**
+ **- adaugare sau stergere coloana**
+ **- redenumire coloana**
+ **- adaugare proprietati coloana (ex: adaugare auto-increment)**
+ **- modificare proprietati coloana (ex: modificare tip de data, modificare pozitie coloana etc)**
+ **- adaugare cheie primara sau secundara (daca nu a fost deja adaugata la crearea tabelei)**
+ 
+  
+  <li>DML (Data Manipulation Language)</li>
 
-**(descrieti aici toate testele pe care intentionati sa le faceti. Puteti include functionalitati din aplicatie, tipuri sau tehnici de testare, dispozitive pe care veti testa etc)**
+  In order to be able to use the database I populated the tables with various data necessary in order to perform queries and manipulate the data. 
+  In the testing process, this necessary data is identified in the Test Design phase and created in the Test Implementation phase. 
 
-<h5>Tests not in scope: </h5>
+  Below you can find all the insert instructions that were created in the scope of this project:
 
-**(descrieti aici toate testele pe care NU intentionati sau nu puteti sa le faceti. Puteti include functionalitati din aplicatie, tipuri sau tehnici de testare, dispozitive pe care veti testa etc)**
+  **Inserati aici toate instructiunile de INSERT pe care le-ati scris. Incercati sa folositi atat insert pe toate coloanele (fara sa precizati pe ce coloane se face insert) cat si insert pe cateva coloane (care necesita mentionarea explicita a coloanelor pe care se face insert). De asemenea, incercati sa acoperiti situatia in care inserati mai multe randuri in acelasi timp**
 
-<h4>1.1.5 Risks detected</h4>
+  After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
-<h5>Project risks:</h5>
+  **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
 
-**(enumerati aici toate riscurile de proiect pe care le-ati identificat pentru proiectul vostru)**
 
-<h5> Product risks: </h5>
+  <li>DQL (Data Query Language)</li>
 
-**(enumerati aici toate riscurile de produs pe care le-ati identificat pentru proiectul vostru)**
+After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean: 
 
-<h4>1.1.6 Evaluating entry criteria</h4>
+**Inserati aici toate instructiunile de DELETE pe care le-ati scris folosind filtrarile necesare astfel incat sa stergeti doar datele de care aveti nevoie**
 
-The entry criteria defined in the Test Planning phase have been achieved and the test process can continue.
+In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
-<h3>1.2 Test Monitoring and Control<h3>
+**Inserati aici toate instructiunile de SELECT pe care le-ati scris folosind filtrarile necesare astfel incat sa extrageti doar datele de care aveti nevoie**
+**Incercati sa acoperiti urmatoarele:**<br>
+**- where**<br>
+**- AND**<br>
+**- OR**<br>
+**- NOT**<br>
+**- like**<br>
+**- inner join**<br>
+**- left join**<br>
+**- OPTIONAL: right join**<br>
+**- OPTIONAL: cross join**<br>
+**- functii agregate**<br>
+**- group by**<br>
+**- having**<br>
+**- OPTIONAL DAR RECOMANDAT: Subqueries - nu au fost in scopul cursului. Puteti sa consultati tutorialul [asta](https://www.techonthenet.com/mysql/subqueries.php) si daca nu intelegeti ceva contactati fie trainerul, fie coordonatorul de grupa**<br>
 
-**(inserati aici motivul pentru care a fost facuta etapa de monitorizare si control si respectiv cum s-a facut aceasta etapa. Aici veti insera de asemenea si raportul de status (test status report) din zephyr - test metrics - primul din lista care sa reflecte activitatea si evolutia testarii. Recomand aici sa executati teste aproape in fiecare zi ca sa vada angajatorul implicarea voastra in testare)**
+</ol>
 
-<h3> 1.3 Test Analysis </h3>
-The testing process will be executed based on the application requirements. <b>(The requirements analysis has been done in order to implement the <i>early testing</i> test principle and the results can be found here - inserati linkul catre documentul de review. Parte asta specificata intre paranteze o puneti doar daca aveti cerinte si daca ati facut review)</b>. <br><br>
+<li>Conclusions</li>
 
-The following test conditions were found: <br>
+**Inserati aici o concluzie cu privire la ceea ce ati lucrat, gen lucrurile pe care le-ati invatat, lessons learned, un rezumat asupra a ceea ce ati facut si orice alta informatie care vi se pare relevanta pentru o concluzie finala asupra a ceea ce ati lucrat**
 
-**(aici puteti fie sa puneti o poza din jira cu titlurile tuturor testelor - din issues filtrare dupa type test sau sa scrieti cu bulinuta numele fiecarei conditii de testare pe care ati identificat-o)**
-
-<h3>1.4 Test Design</h3>
-
-Functional test cases were created in Zephyr Squad based on the analysis of the specifications. The test cases can be accessed here **(inserati linkul catre fisierul cu testele, in format pdf, word sau csv)**
-
-<h3>1.5 Test Implementation</h3>
-
-The following elements are needed to be ready before the test execution phase begins:
-
-**(inserati lista de elemente care sunt evaluate in etapa de implementare)**
-
-<h3>1.6. Test Execution </h3>
-
-Test cases are executed on the created test Cycle summary: **(inserati aici numele cycle-ului pe care l-ati creat)**
-
-Bugs have been created based on the failed tests. The complete bug reports can be found here: **(inserati aici fisierul cu bug-urile pe care le-ati identificat)**
-
-The following is a summary of the bugs that have been found
-**(inserati o lista cu titlurile bug-urilor identificate impreuna cu prioritatea si severitatea fiecaruia)**
-
-Full regression testing is needed on the impacted areas after the bugs are fixed and retesting will be done for every functionality that was previously failed.
-
-1.7 Test Completion
-As the Exit criteria were met and satisfied as mentioned in the appropriate section, this feature is suggested to ‘Go Live’ by the Testing team
-
-The traceability matrix was generated and can be found here: **(inserati aici fie o poza cu matricea de trasabilitate din jira, fie linkul catre fiserul excel exportat din jira cu matricea de trasabilitate. Nu uitati sa faceti filtrare dupa type = story)**
-
-Test execution chart was generated and can be found below. 
-
-**(inserati aici raportul de executie generat din jira din sectiunea de dashboards)**
-
-The final report shows that a number **(inserati numarul de teste)** tests have failed of a total of **(inserati numarul de teste)**
-
-A number of **(inserati numarul de bug-uri)** total bugs were found, from which the priority is: **(inserati numarul de bug-uri)** are high and **(inserati numarul de bug-uri)** are medium.
-
-**(inserati aici o concluzie generala a testarii care sa cuprinda cate teste au fost create si executate, ce procentaj aproximativ din cerintele in scop au fost acoperite, daca exista vreo functionalitate pe care nu ai apucat sa o testezi, daca bug-urile gasite impacteaza lansarea produsului in productie sau se pot fixa si ulterior, daca ai identificat riscuri de produs care trebuie mitigate, daca e vreo reecomandare pe care vrei sa o faci pentru lansare, daca sunt ceva lessons learned de care trebuie sa se tina cont la proiectele viitoare etc.)**
+</ol>
