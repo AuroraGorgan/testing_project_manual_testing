@@ -27,16 +27,17 @@ You can find below the database schema that was generated through Reverse Engine
 The tables are connected in the following way:
 
 <ul>
-  <li> movie_purchases_July is connected with clients through a one-to-many relationship which was implemented through clients.client_id as a primary key and movie_purchases_July.client_id as a foreign key</li>
-  <li> movie_purchases_July is connected with cinemas through a one-to-many relationship which was implemented through cinemas.cinema_id as a primary key and movie_purchases_July.cinema_id as a foreign key</li>
-  <li> movie_subtitles is connected with subtitles through a one-to-many relationship which was implemented through subtitles.subtitles_id as a primary key and movie_subtitles.subtitles_id as a foreign key</li>
-  <li> movie_purchases_July is connected with movie_subtitles through a one-to-many relationship which was implemented through movie_id as a primary key in movie_purchases_July and movie_id as a foreign key in movie_subtitles</li>
+  <li> movie_purchases_July is connected with clients through a *one-to-many relationship* which was implemented through clients.client_id as a primary key and movie_purchases_July.client_id as a foreign key</li>
+  <li> movie_purchases_July is connected with cinemas through a *one-to-many relationship* which was implemented through cinemas.cinema_id as a primary key and movie_purchases_July.cinema_id as a foreign key</li>
+  <li> movie_subtitles is connected with subtitles through a *one-to-many relationship* which was implemented through subtitles.subtitles_id as a primary key and movie_subtitles.subtitles_id as a foreign key</li>
+  <li> movie_purchases_July is connected with movie_subtitles through a *one-to-many relationship* which was implemented through movie_id as a primary key in movie_purchases_July and movie_id as a foreign key in movie_subtitles</li>
 </ul><br>
 
-<li>Database Queries</li><br>
+**<li>Database Queries</li><br>**
 
 <ol type="a">
-  <li>DDL (Data Definition Language)</li>
+  
+ **<li>DDL (Data Definition Language)</li>**
 
 The following instructions were written in the scope of CREATING the structure of the database **(CREATE INSTRUCTIONS)**
 
@@ -98,7 +99,7 @@ After the database and the tables have been created, a few **ALTER instructions*
 references clients (client_id),
 add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);</code>
   
-  <li>DML (Data Manipulation Language)</li>
+ **<li>DML (Data Manipulation Language)</li>**
 
   In order to be able to use the database I populated the tables with various data necessary in order to perform queries and manipulate the data. 
   In the testing process, this necessary data is identified in the Test Design phase and created in the Test Implementation phase. 
@@ -163,7 +164,7 @@ set movie_rating_IMDB = movie_rating_IMDB + 0.1
 where year (release_date) = 2012;
 select * from movie_purchases_July;</code>
 
-  <li>DQL (Data Query Language)</li>
+ **<li>DQL (Data Query Language)</li>**
 
 After the testing process, I **deleted** the data that was no longer relevant in order to preserve the database clean: 
 
@@ -265,7 +266,7 @@ where movie_rating_IMDB = (select MAX(movie_rating_IMDB) from movie_purchases_Ju
 
 </ol>
 
-<li>Conclusions</li>
+**<li>Conclusions</li>**
 
 In summary, this task provided an opportunity to delve into relational database concepts, reinforcing the importance of clear design and understanding relationships between tables. Through this experience, I gained practical insights into database management and the importance of thoughtful schema design.
 
