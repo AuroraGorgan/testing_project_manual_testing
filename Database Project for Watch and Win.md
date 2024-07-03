@@ -55,7 +55,7 @@ release_date date);</code>
 <code>create table subtitles
 (subtitles_id int primary key,
 subtitles_name varchar (20),
-subtitles_code char (2));<code>
+subtitles_code char (2));</code>
 
 <code>create table movie_subtitles
 (movie_subtitles_id int primary key,
