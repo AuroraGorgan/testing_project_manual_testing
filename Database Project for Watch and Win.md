@@ -2,13 +2,13 @@
 
 The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
-Application under test: Watch and Win
+Application under test: **Watch and Win**
 
-Tools used: MySQL Workbench
+Tools used: **MySQL Workbench**
 
-Database description: The "Watch and Win" database is designed to manage information related to ticket purchases within a cinema network for the Watch and Win application, which selects winners for a free 3-month cinema subscription. The primary purpose of this database is to provide an efficient platform for tracking and managing ticket sales, as well as for analyzing data related to customer preferences and movie performance.
+Database description: The **"Watch and Win"** database is designed to manage information related to ticket purchases within a cinema network for the **Watch and Win** application, which selects winners for a free 3-month cinema subscription. The primary purpose of this database is to provide an efficient platform for tracking and managing ticket sales, as well as for analyzing data related to customer preferences and movie performance.
 
-General information stored:
+<h4>General information stored:</h4>
 
 1.	Ticket purchase details: these include the movie ID, client name, purchase date, number of tickets purchased, movie title and genre, IMDb rating and release date.
 2.	Information on available subtitles: the database also contains details about the available subtitles for each movie, including a unique identifier, subtitle name and code.
@@ -16,7 +16,7 @@ General information stored:
 4.	Link between movies and subtitles: through the "movie_subtitles" table, the database establishes the connection between movies and the available subtitles.
 
 <ol>
-<li>Database Schema </li>
+<li>**Database Schema** </li>
 <br>
 You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
 
