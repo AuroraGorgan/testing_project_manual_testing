@@ -37,7 +37,7 @@ The tables are connected in the following way:
 <ol type="a">
   <li>DDL (Data Definition Language)</li>
 
-The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
+The following instructions were written in the scope of CREATING the structure of the database **(CREATE INSTRUCTIONS)**
 
 <code>create database Watch_and_Win;</code>
 
@@ -66,18 +66,18 @@ foreign key (subtitles_id) references subtitles (subtitles_id));</code>
 
 <code>create table clients 
 (client_id int primary key auto_increment,
-    client_name varchar(100) not null,
-    email varchar(100),
-    phone varchar(30));</code>
+client_name varchar(100) not null,
+email varchar(100),
+phone varchar(30));</code>
 
 <code>create table cinemas 
 (cinema_id int primary key auto_increment,
-    cinema_name varchar(100) not null,
-    location varchar(100));</code>
+cinema_name varchar(100) not null,
+location varchar(100));</code>
 
-After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
+After the database and the tables have been created, a few **ALTER instructions** were written in order to update the structure of the database, as described below:
 
-alter table movie_purchases drop column movie_subtitles;
+<code>alter table movie_purchases drop column movie_subtitles;
 
 alter table movie_purchases add cinema varchar(40);
 
@@ -95,7 +95,7 @@ alter table movie_purchases_July add client_id INT, add cinema_id INT;
 
 alter table movie_purchases_July add constraint fk_client foreign key (client_id) 
 references clients (client_id),
-add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);
+add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);</code>
   
   <li>DML (Data Manipulation Language)</li>
 
