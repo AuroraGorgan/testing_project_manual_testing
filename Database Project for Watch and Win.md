@@ -27,10 +27,10 @@ You can find below the database schema that was generated through Reverse Engine
 The tables are connected in the following way:
 
 <ul>
-  <li> movie_purchases_July is connected with clients through a *one-to-many relationship* which was implemented through clients.client_id as a primary key and movie_purchases_July.client_id as a foreign key</li>
-  <li> movie_purchases_July is connected with cinemas through a *one-to-many relationship* which was implemented through cinemas.cinema_id as a primary key and movie_purchases_July.cinema_id as a foreign key</li>
-  <li> movie_subtitles is connected with subtitles through a *one-to-many relationship* which was implemented through subtitles.subtitles_id as a primary key and movie_subtitles.subtitles_id as a foreign key</li>
-  <li> movie_purchases_July is connected with movie_subtitles through a *one-to-many relationship* which was implemented through movie_id as a primary key in movie_purchases_July and movie_id as a foreign key in movie_subtitles</li>
+  <li> movie_purchases_July is connected with clients through a <em>one-to-many relationship</em> which was implemented through clients.client_id as a primary key and movie_purchases_July.client_id as a foreign key</li>
+  <li> movie_purchases_July is connected with cinemas through a <em>one-to-many relationship</em> which was implemented through cinemas.cinema_id as a primary key and movie_purchases_July.cinema_id as a foreign key</li>
+  <li> movie_subtitles is connected with subtitles through a <em>one-to-many relationship</em> which was implemented through subtitles.subtitles_id as a primary key and movie_subtitles.subtitles_id as a foreign key</li>
+  <li> movie_purchases_July is connected with movie_subtitles through a <em>one-to-many relationship</em> which was implemented through movie_id as a primary key in movie_purchases_July and movie_id as a foreign key in movie_subtitles</li>
 </ul><br>
 
 **<li>Database Queries</li><br>**
