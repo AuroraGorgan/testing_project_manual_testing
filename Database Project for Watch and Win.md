@@ -39,7 +39,7 @@ The tables are connected in the following way:
 
 The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-'create database Watch_and_Win;
+<code>create database Watch_and_Win;
 
 create table movie_purchases
 ( movie_id int primary key,
@@ -73,7 +73,7 @@ create table clients
 create table cinemas 
 (cinema_id int primary key auto_increment,
     cinema_name varchar(100) not null,
-    location varchar(100));'
+    location varchar(100));</code>
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
