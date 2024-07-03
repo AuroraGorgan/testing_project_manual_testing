@@ -57,25 +57,25 @@ release_date date);</code>
 subtitles_name varchar (20),
 subtitles_code char (2));<code>
 
-create table movie_subtitles
+<code>create table movie_subtitles
 (movie_subtitles_id int primary key,
 movie_id int,
 subtitles_id int,
 foreign key (movie_id) references movie_purchases (movie_id),
-foreign key (subtitles_id) references subtitles (subtitles_id));
+foreign key (subtitles_id) references subtitles (subtitles_id));</code>
 
-create table clients 
+<code>create table clients 
 (client_id int primary key auto_increment,
     client_name varchar(100) not null,
     email varchar(100),
-    phone varchar(30));
+    phone varchar(30));</code>
 
-create table cinemas 
+<code>create table cinemas 
 (cinema_id int primary key auto_increment,
     cinema_name varchar(100) not null,
-    location varchar(100));
+    location varchar(100));</code>
 
-  After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
+After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
 alter table movie_purchases drop column movie_subtitles;
 
