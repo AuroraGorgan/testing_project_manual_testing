@@ -33,11 +33,11 @@ The tables are connected in the following way:
   <li> movie_purchases_July is connected with movie_subtitles through a <em>one-to-many relationship</em> which was implemented through movie_id as a primary key in movie_purchases_July and movie_id as a foreign key in movie_subtitles</li>
 </ul><br>
 
-**<li>Database Queries</li><br>**
+**<h2><li>Database Queries</li><br></h2>**
 
 <ol type="a">
   
- **<li>DDL (Data Definition Language)</li>**
+ **<h3><li>DDL (Data Definition Language)</li></h3>**
 
 The following instructions were written in the scope of CREATING the structure of the database **(CREATE INSTRUCTIONS)**
 
@@ -99,7 +99,7 @@ After the database and the tables have been created, a few **ALTER instructions*
 references clients (client_id),
 add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);</code>
   
- **<li>DML (Data Manipulation Language)</li>**
+ **<h3><li>DML (Data Manipulation Language)</li></h3>**
 
   In order to be able to use the database I populated the tables with various data necessary in order to perform queries and manipulate the data. 
   In the testing process, this necessary data is identified in the Test Design phase and created in the Test Implementation phase. 
@@ -164,7 +164,7 @@ set movie_rating_IMDB = movie_rating_IMDB + 0.1
 where year (release_date) = 2012;
 select * from movie_purchases_July;</code>
 
- **<li>DQL (Data Query Language)</li>**
+ **<h3><li>DQL (Data Query Language)</li></h3>**
 
 After the testing process, I **deleted** the data that was no longer relevant in order to preserve the database clean: 
 
@@ -266,7 +266,7 @@ where movie_rating_IMDB = (select MAX(movie_rating_IMDB) from movie_purchases_Ju
 
 </ol>
 
-**<li>Conclusions</li>**
+**<h2><li>Conclusions</li></h2>**
 
 In summary, this task provided an opportunity to delve into relational database concepts, reinforcing the importance of clear design and understanding relationships between tables. Through this experience, I gained practical insights into database management and the importance of thoughtful schema design.
 
