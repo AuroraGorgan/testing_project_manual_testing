@@ -18,7 +18,7 @@ Database description: The **"Watch and Win"** database is designed to manage inf
 <ol>
 <li>Database Schema</li>
 <br>
-You can find below the **database schema** that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
+You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
 
 ![image](https://github.com/AuroraGorgan/testing_project_manual_testing/assets/162451396/47af38fe-f9a3-4a1b-9442-046661121e47)
 
@@ -37,9 +37,9 @@ The tables are connected in the following way:
 <ol type="a">
   <li>DDL (Data Definition Language)</li>
 
-  The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
+The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-create database Watch_and_Win;
+'create database Watch_and_Win;
 
 create table movie_purchases
 ( movie_id int primary key,
@@ -73,7 +73,7 @@ create table clients
 create table cinemas 
 (cinema_id int primary key auto_increment,
     cinema_name varchar(100) not null,
-    location varchar(100));
+    location varchar(100));'
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
