@@ -53,7 +53,7 @@ movie_rating_IMDB float,
 release_date date);</code>
 
 <code>create table subtitles
-( subtitles_id int primary key,
+(subtitles_id int primary key,
 subtitles_name varchar (20),
 subtitles_code char (2));<code>
 
@@ -77,23 +77,23 @@ location varchar(100));</code>
 
 After the database and the tables have been created, a few **ALTER instructions** were written in order to update the structure of the database, as described below:
 
-<code>alter table movie_purchases drop column movie_subtitles;
+<code>alter table movie_purchases drop column movie_subtitles;</code>
 
-alter table movie_purchases add cinema varchar(40);
+<code>alter table movie_purchases add cinema varchar(40);</code>
 
-alter table movie_purchases modify cinema varchar(40) after movie_id;
+<code>alter table movie_purchases modify cinema varchar(40) after movie_id;</code>
 
-alter table movie_purchases rename movie_purchases_July;
+<code>alter table movie_purchases rename movie_purchases_July;</code>
 
-alter table movie_purchases_July rename column tickets to number_of_tickets;
+<code>alter table movie_purchases_July rename column tickets to number_of_tickets;</code>
 
-alter table movie_purchases_July modify column movie_title varchar(120);
+<code>alter table movie_purchases_July modify column movie_title varchar(120);</code>
 
-alter table movie_subtitles modify column movie_subtitles_id int auto_increment;
+<code>alter table movie_subtitles modify column movie_subtitles_id int auto_increment;</code>
 
-alter table movie_purchases_July add client_id INT, add cinema_id INT;
+<code>alter table movie_purchases_July add client_id INT, add cinema_id INT;</code>
 
-alter table movie_purchases_July add constraint fk_client foreign key (client_id) 
+<code>alter table movie_purchases_July add constraint fk_client foreign key (client_id) 
 references clients (client_id),
 add constraint fk_cinema foreign key (cinema_id) references cinemas (cinema_id);</code>
   
