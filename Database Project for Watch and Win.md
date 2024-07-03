@@ -39,9 +39,9 @@ The tables are connected in the following way:
 
 The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-<code>create database Watch_and_Win;
+<code>create database Watch_and_Win;</code>
 
-create table movie_purchases
+<code>create table movie_purchases
 ( movie_id int primary key,
 client_name varchar(100),
 purchase_occasion varchar(20),
@@ -50,12 +50,12 @@ movie_title varchar(20),
 movie_genre varchar(20),
 movie_subtitles char (2),
 movie_rating_IMDB float,
-release_date date);
+release_date date);</code>
 
-create table subtitles
+<code>create table subtitles
 ( subtitles_id int primary key,
 subtitles_name varchar (20),
-subtitles_code char (2));
+subtitles_code char (2));<code>
 
 create table movie_subtitles
 (movie_subtitles_id int primary key,
@@ -73,7 +73,7 @@ create table clients
 create table cinemas 
 (cinema_id int primary key auto_increment,
     cinema_name varchar(100) not null,
-    location varchar(100));</code>
+    location varchar(100));
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
