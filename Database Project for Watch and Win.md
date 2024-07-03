@@ -17,7 +17,7 @@ Database description: The **"Watch and Win"** database is designed to manage inf
 
 <ol>
   
-**<li>Database Schema</li>**
+**<h2><li>Database Schema</li></h2>**
 <br>
 You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
 
